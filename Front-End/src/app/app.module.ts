@@ -9,6 +9,8 @@ import { CursosComponent } from './components/cursos/cursos.component';
 import { AlumnosComponent } from './components/alumnos/alumnos.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { LayoutModule } from './layout/layout.module';
+import { AlumnosFormComponent } from './components/alumnos/alumnos-form.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -17,12 +19,14 @@ import { LayoutModule } from './layout/layout.module';
     CursosComponent,
     AlumnosComponent,
     PageNotFoundComponent,
+    AlumnosFormComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     LayoutModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

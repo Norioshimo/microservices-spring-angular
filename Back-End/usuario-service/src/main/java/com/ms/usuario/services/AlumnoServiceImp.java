@@ -5,6 +5,8 @@ import com.ms.commons.service.services.CommonServiceImp;
 import com.ms.usuario.client.CursoFeignClient;
 import com.ms.usuario.repository.AlumnoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -40,5 +42,18 @@ public class AlumnoServiceImp extends CommonServiceImp<Alumno, AlumnoRepository>
         super.deleteById(id);
         this.eliminarCursoAlumnoPorId(id);
     }
+
+    @Override
+    @Transactional(readOnly = true)
+    public Iterable<Alumno> findAll() {
+        return repository.findAllByOrderByIdAsc();
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public Page<Alumno> findAll(Pageable pageable) {
+        return repository.findAllByOrderByIdAsc(pageable);
+    }
+
 
 }

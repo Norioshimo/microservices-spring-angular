@@ -16,6 +16,7 @@ import java.util.Objects;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+@ToString(exclude = {"foto"})
 @EqualsAndHashCode(of = {"id"})
 public class Alumno {
 
@@ -61,4 +62,7 @@ public class Alumno {
     public int hashCode() {
         return Objects.hashCode(id);
     }
+
+
+
 }

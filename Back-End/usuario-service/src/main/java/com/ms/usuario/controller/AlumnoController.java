@@ -26,10 +26,10 @@ public class AlumnoController extends CommonController<Alumno, AlumnoService> {
 
 
     @GetMapping("/uploads/img/{id}")
-    public ResponseEntity<?>verFoto(@PathVariable Long id){
-        Optional<Alumno>o = this.service.findById(id);
+    public ResponseEntity<?> verFoto(@PathVariable Long id) {
+        Optional<Alumno> o = this.service.findById(id);
 
-        if(o.isEmpty() || o.get().getFoto()==null){
+        if (o.isEmpty() || o.get().getFoto() == null) {
             return ResponseEntity.notFound().build();
         }
 
@@ -40,7 +40,7 @@ public class AlumnoController extends CommonController<Alumno, AlumnoService> {
     }
 
     @GetMapping("/alumnos-por-curso")
-    public ResponseEntity<?>obtenerAlumnosPorCurso(@RequestParam List<Long>ids){
+    public ResponseEntity<?> obtenerAlumnosPorCurso(@RequestParam List<Long> ids) {
         return ResponseEntity.ok(this.service.findAllById(ids));
     }
 
@@ -48,8 +48,10 @@ public class AlumnoController extends CommonController<Alumno, AlumnoService> {
     @PutMapping("/{id}")
     public ResponseEntity<?> editar(@Valid @RequestBody Alumno alumno, BindingResult result, @PathVariable(name = "id") Long id) {
         log.info("Buscar usuario con el id: " + id);
+        log.info(alumno.toString());
 
         if (result.hasErrors()) {
+            log.info("Datos de usuarios invalidos");
             return this.validar(result);
         }
 
