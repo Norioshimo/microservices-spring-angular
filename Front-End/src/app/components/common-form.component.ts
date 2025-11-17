@@ -1,4 +1,4 @@
-import { Injectable, OnInit } from '@angular/core';
+import {  OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { CommonService } from '../services/common.service';
