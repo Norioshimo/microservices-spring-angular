@@ -1,9 +1,9 @@
-import {  OnInit } from '@angular/core';
+import { OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { CommonService } from '../services/common.service';
 import { Generic } from '../models';
- 
+
 export abstract class CommonFormComponent<E extends Generic, S extends CommonService<E>> implements OnInit {
 
   titulo: string;
@@ -21,7 +21,11 @@ export abstract class CommonFormComponent<E extends Generic, S extends CommonSer
     this.route.paramMap.subscribe(params => {
       const id: number = +params.get('id');
       if (id) {
-        this.service.ver(id).subscribe(m => this.model = m)
+        this.service.ver(id).subscribe(m => {
+          this.model = m;
+          this.titulo = 'Editar ' + this.nombreModel;
+
+        })
       }
     })
   }

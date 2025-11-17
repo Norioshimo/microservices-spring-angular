@@ -49,6 +49,8 @@ public class ExamenController extends CommonController<Examen, ExamenService> {
         examenDb.removePreguntas(listaEliminado);
 
         examenDb.setPreguntas(examen.getPreguntas());
+        examenDb.setAsignaturaHija(examen.getAsignaturaHija());
+        examenDb.setAsignaturaPadre(examen.getAsignaturaPadre());
 
         log.info("Examen: " + examenDb.toString());
 

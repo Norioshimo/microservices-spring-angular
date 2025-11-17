@@ -1,16 +1,22 @@
 import { Injectable } from '@angular/core';
 import { CommonService } from './common.service';
-import { Examen } from '../models';
+import { Asignatura, Examen } from '../models';
 import { HttpClient } from '@angular/common/http';
+import { BASE_ENDPOINT } from '../config';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ExamenService extends CommonService<Examen> {
 
-  protected baseEndpoint = `http://localhost:8080/api/examen`;
+  protected baseEndpoint = `${BASE_ENDPOINT}/examen`;
 
   constructor(http: HttpClient) {
-      super(http);
-    }
+    super(http);
+  }
+
+  public findAllAsignatura(): Observable<Asignatura[]> {
+    return this.http.get<Asignatura[]>(`${this.baseEndpoint}/asignaturas`);
+  }
 }

@@ -14,6 +14,7 @@ import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { CursosFormComponent } from './components/cursos/cursos-form.component';
+import { ExamenesFormComponent } from './components/examenes/examenes-form.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { CursosFormComponent } from './components/cursos/cursos-form.component';
     PageNotFoundComponent,
     AlumnosFormComponent,
     CursosFormComponent,
+    ExamenesFormComponent,
   ],
   imports: [
     BrowserModule,
