@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Examen } from 'src/app/models';
 import { ExamenService } from 'src/app/services/examen.service';
 import { CommonListarComponent } from '../common-listar.component';
