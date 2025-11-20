@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonListarComponent } from '../common-listar.component';
 import { Curso } from 'src/app/models';
 import { CursoService } from 'src/app/services/curso.service';
@@ -10,6 +10,7 @@ import { CursoService } from 'src/app/services/curso.service';
 })
 export class CursosComponent extends CommonListarComponent<Curso, CursoService> {
 
+  
   constructor(service: CursoService) {
     super(service);
     this.titulo = 'Listado de Cursos';

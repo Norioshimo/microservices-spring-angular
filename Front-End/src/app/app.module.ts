@@ -23,6 +23,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatTabsModule } from '@angular/material/tabs';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { AsignarExamenesComponent } from './components/cursos/asignar-examenes.component';
 
 
 @NgModule({
@@ -36,6 +38,7 @@ import { MatTabsModule } from '@angular/material/tabs';
     CursosFormComponent,
     ExamenesFormComponent,
     AsignarAlumnosComponent,
+    AsignarExamenesComponent,
   ],
   imports: [
     BrowserModule,
@@ -51,7 +54,8 @@ import { MatTabsModule } from '@angular/material/tabs';
     MatButtonModule,
     MatCardModule,
     MatTabsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatAutocompleteModule
   ],
   providers: [],
   bootstrap: [AppComponent]

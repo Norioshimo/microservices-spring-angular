@@ -20,7 +20,7 @@ export class AsignarAlumnosComponent implements OnInit {
   alumnos: Alumno[] = [];
 
   dataSoure: MatTableDataSource<Alumno>;
-  @ViewChild(MatPaginator, { static: true }) paginador: MatPaginator; 
+  @ViewChild(MatPaginator, { static: true }) paginador: MatPaginator;
   pageSizeOptions: number[] = [3, 5, 10, 25, 100];
 
   mostrarColumnas: string[] = ['id', 'nombre', 'apellido', 'seleccion'];
@@ -43,7 +43,7 @@ export class AsignarAlumnosComponent implements OnInit {
     })
   }
 
-  iniciarPaginador(): void {
+  private iniciarPaginador(): void {
     this.dataSoure = new MatTableDataSource<Alumno>(this.alumnos);
     this.dataSoure.paginator = this.paginador;
     this.paginador._intl.itemsPerPageLabel = `Registro por página`;
@@ -91,23 +91,23 @@ export class AsignarAlumnosComponent implements OnInit {
   }
 
   aliminarAlumno(alumno: Alumno): void {
-    this.cursoService.eliminarAlumno(this.curso, alumno).subscribe(curso => {
 
-      Swal.fire({
-        title: 'Cuidado',
-        text: "Seguro que desea eliminar?",
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonText: "Sí, Eliminar",
-        cancelButtonText: `Cancelar`
-      }).then((result) => {
-        if (result.isConfirmed) {
+    Swal.fire({
+      title: 'Cuidado',
+      text: "Seguro que desea eliminar?",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: "Sí, Eliminar",
+      cancelButtonText: `Cancelar`
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.cursoService.eliminarAlumno(this.curso, alumno).subscribe(curso => {
           this.alumnos = this.alumnos.filter(a => a.id !== alumno.id);
           this.iniciarPaginador();
           Swal.fire('Eliminado', `Alumno eliminao con exito`, 'success')
-        }
-      });
-
+        });
+      }
     });
+
   }
 }
