@@ -4,7 +4,6 @@
 ## Tecnologías
 - Backend: Spring Boot 3.5.7, Java 17+
 - Frontend: Angular 9, TypeScript, RxJS
-- Node 12.15.0
 - Base de datos: PostgreSQL / MySQL / MongoDB
 - Mensajería/eventos: Kafka / RabbitMQ (Pendiente)
 - Contenedores: Docker, Docker Compose (Pendiente)
@@ -25,7 +24,7 @@
 ## Instalación y Ejecución
 Prerequisitos:
 - Java 17+
-- Node.js 16+
+- Node.js 12.15.0
 - Angular CLI
 - Docker y Docker Compose
 - PostgreSQL / MongoDB instalado
