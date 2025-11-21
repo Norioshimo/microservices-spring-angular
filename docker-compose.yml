@@ -1,0 +1,71 @@
+# version: "3.8"
+
+services:
+  postgres:
+    image: postgres:17
+    container_name: postgres17
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgres
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432" # se expone el puerto
+    networks:
+      - red_postgres_compartida
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin4
+    restart: unless-stopped
+    environment:
+      PGADMIN_DEFAULT_EMAIL: norio@google.com
+      PGADMIN_DEFAULT_PASSWORD: 123
+    ports:
+      - "81:80"
+    volumes:
+      - pgadmin_data:/var/lib/pgadmin
+    networks:
+      - red_postgres_compartida
+
+  mysql:
+    image: mysql:8.0
+    container_name: mysql_db
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: db_ms_examenes
+    volumes:
+      - mysql_data:/var/lib/mysql
+    ports:
+      - "3306:3306" # se expone el puerto
+    networks:
+      - red_mysql_compartida
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    container_name: phpmyadmin
+    restart: unless-stopped
+    ports:
+      - "82:80"
+    environment:
+      PMA_HOST: mysql
+      PMA_PORT: 3306
+    volumes:
+    - phpmyadmin_data:/var/lib/phpmyadmin
+    networks:
+      - red_mysql_compartida
+    depends_on:
+      - mysql
+
+volumes:
+  postgres_data:
+  pgadmin_data:
+  mysql_data:
+  phpmyadmin_data:
+
+networks:
+  red_postgres_compartida:
+  red_mysql_compartida:

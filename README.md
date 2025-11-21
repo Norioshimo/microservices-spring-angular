@@ -6,17 +6,17 @@
 - Frontend: Angular 9, TypeScript, RxJS
 - Base de datos: PostgreSQL / MySQL / MongoDB
 - Mensajería/eventos: Kafka / RabbitMQ (Pendiente)
-- Contenedores: Docker, Docker Compose (Pendiente)
+- Contenedores: Docker, Docker Compose
 - Gestión de dependencias: Maven / npm
 
 ## Arquitectura de Microservicios
 1. Gateway Service → Entrada principal para las solicitudes, manejo de rutas y seguridad.
 2. Discovery-service → Servicio de descubrimiento (Eureka)
 3. Auth Service → Autenticación y autorización de usuarios (JWT) (Pendiente).
-4. Curso-service → Microservicio de gestión de cursos
-5. Examen-service → Microservicio de gestión de exámenes
-6. Respuesta-service → Microservicio de gestión de respuestas
-7. Usuario-service → Microservicio de gestión de usuarios
+4. Curso-service → Microservicio de gestión de cursos (mysql)
+5. Examen-service → Microservicio de gestión de exámenes (mysql)
+6. Respuesta-service → Microservicio de gestión de respuestas (mongodb)
+7. Usuario-service → Microservicio de gestión de usuarios (postgresql)
 8. Commons-alumnos, Commons-examenes, Commons-services → Librerías compartidas
 9. Notification Service → Manejo de notificaciones por email o eventos (Pendiente).
 
@@ -43,9 +43,11 @@ Frontend (Angular):
 3. Ejecutar la aplicación:
    ng serve --open
 
-Con Docker: (Pendiente)
-1. Levantar todos los microservicios:
-   docker-compose up --build
+Con Docker: 
+1. Levantar las base de datos. Mongo db se debe tener instalado en la máquina.
+```
+docker compose up -d
+```
 
 
 ## Referencias
