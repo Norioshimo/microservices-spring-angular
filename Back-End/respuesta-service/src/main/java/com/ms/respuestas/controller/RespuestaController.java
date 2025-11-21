@@ -21,10 +21,11 @@ public class RespuestaController {
 
     @PostMapping
     public ResponseEntity<?> crear(@RequestBody Iterable<Respuesta> respuestas) {
-
+        log.info("crear Respuesta");
         respuestas = ((List<Respuesta>) respuestas).stream().map(r -> {
             r.setAlumnoId(r.getAlumno().getId());
             r.setPreguntaId(r.getPregunta().getId());
+            log.info("examen: "+r.getPregunta().getExamen());
             return r;
         }).collect(Collectors.toList());
 
@@ -36,6 +37,7 @@ public class RespuestaController {
 
     @GetMapping("/alumno/{alumnoId}/examen/{examenId}")
     public ResponseEntity<?> obtenerRespuestasPorExamen(@PathVariable Long alumnoId, @PathVariable Long examenId) {
+        log.info("/alumno/{alumnoId}/examen/{examenId}");
         Iterable<Respuesta> respuestas = this.respuestaService.findRespuestaByAlumnoByExamen(alumnoId, examenId);
 
         return ResponseEntity.ok(respuestas);

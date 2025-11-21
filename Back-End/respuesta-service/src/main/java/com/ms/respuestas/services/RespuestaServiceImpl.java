@@ -1,18 +1,17 @@
 package com.ms.respuestas.services;
 
-import com.ms.commons.examen.entity.Examen;
-import com.ms.commons.examen.entity.Pregunta;
 import com.ms.respuestas.clients.ExamenFeignClient;
 import com.ms.respuestas.entity.Respuesta;
 import com.ms.respuestas.repository.RespuestaRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
+@Slf4j
 public class RespuestaServiceImpl implements RespuestaService {
 
     @Autowired
@@ -57,9 +56,19 @@ public class RespuestaServiceImpl implements RespuestaService {
             List<Long> preguntaids = respuestasAlumno.stream().map(r -> r.getPreguntaId()).collect(Collectors.toList());
             examenIds = examenFeignClient.obtnerExamenesIdsPReguntasIdRespondidas(preguntaids);
         }*/
-
+        log.info("Buscar findExamenesIdsRespuestasByAlumno");
         List<Respuesta> respuestasAlumno = (List<Respuesta>) this.respuestaRepository.findExamenesIdsRespuestasByAlumno(alumnoId);
-        List<Long> examenIds = respuestasAlumno.stream().map(r -> r.getPregunta().getExamen().getId()).distinct().collect(Collectors.toList());
+
+        log.info("Buscar id de los examenes");
+        List<Long> examenIds = respuestasAlumno.stream()
+                .filter(r -> {
+                    log.info(r.getPregunta().toString());
+                    if (r.getPregunta().getExamen() != null) {
+                        return true;
+                    }
+                    return false;
+                })
+                .map(r -> r.getPregunta().getExamen().getId()).distinct().collect(Collectors.toList());
 
         return examenIds;
     }

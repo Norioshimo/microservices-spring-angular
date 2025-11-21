@@ -7,7 +7,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 
-@Document(collation = "respuestas")
+@Document(collection = "respuestas")
 @Getter
 @Setter
 @AllArgsConstructor
