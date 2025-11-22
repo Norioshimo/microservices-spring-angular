@@ -1,8 +1,8 @@
 package com.ms.cursos.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.ms.commons.alumno.entity.Alumno;
 import com.ms.commons.examen.entity.Examen;
+import com.ms.cursos.dto.AlumnoDto;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
 import lombok.*;
@@ -39,7 +39,7 @@ public class Curso {
     private List<CursoAlumno>cursoAlumnos;
 
     @Transient
-    private List<Alumno> alumnos;
+    private List<AlumnoDto> alumnos;
 
     @PrePersist
     public void prePersist() {
@@ -52,11 +52,11 @@ public class Curso {
         this.cursoAlumnos = new ArrayList<>();
     }
 
-    public boolean addAlumno(Alumno alumno) {
+    public boolean addAlumno(AlumnoDto alumno) {
         return this.alumnos.add(alumno);
     }
 
-    public boolean removeAlumno(Alumno alumno) {
+    public boolean removeAlumno(AlumnoDto alumno) {
         return this.alumnos.remove(alumno);
     }
 

@@ -1,7 +1,7 @@
 package com.ms.respuestas.entity;
 
-import com.ms.commons.alumno.entity.Alumno;
 import com.ms.commons.examen.entity.Pregunta;
+import com.ms.respuestas.dto.AlumnoDto;
 import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -21,7 +21,7 @@ public class Respuesta {
 
     private String texto;
 
-    private Alumno alumno;
+    private AlumnoDto alumno;
 
     private Long alumnoId;
 

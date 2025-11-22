@@ -1,9 +1,8 @@
 package com.ms.alumno.services;
 
 
-import com.ms.commons.alumno.entity.Alumno;
+import com.ms.alumno.entity.Alumno;
 import com.ms.commons.service.services.CommonService;
-import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 

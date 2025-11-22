@@ -1,6 +1,6 @@
 package com.ms.cursos.clients;
 
-import com.ms.commons.alumno.entity.Alumno;
+import com.ms.cursos.dto.AlumnoDto;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -11,5 +11,5 @@ import java.util.List;
 public interface AlumnoFeignClient {
 
     @GetMapping("/api/alumno/alumnos-por-curso")
-    public Iterable<Alumno> obtenerAlumnosPorCurso(@RequestParam List<Long> ids);
+    public Iterable<AlumnoDto> obtenerAlumnosPorCurso(@RequestParam List<Long> ids);
 }

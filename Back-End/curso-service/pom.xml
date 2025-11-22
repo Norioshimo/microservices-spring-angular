@@ -86,11 +86,7 @@
 			<artifactId>commons-services</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
-		<dependency>
-			<groupId>com.ms.commons</groupId>
-			<artifactId>commons-alumnos</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
+
 		<dependency>
 			<groupId>com.ms.commons</groupId>
 			<artifactId>commons-examenes</artifactId>

@@ -1,4 +1,5 @@
-package com.ms.commons.alumno.entity;
+package com.ms.respuestas.dto;
+
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
@@ -9,8 +10,6 @@ import lombok.*;
 import java.util.Date;
 import java.util.Objects;
 
-@Entity
-@Table(name = "alumnos")
 @Getter
 @Setter
 @AllArgsConstructor
@@ -18,7 +17,7 @@ import java.util.Objects;
 @Builder
 @ToString(exclude = {"foto"})
 @EqualsAndHashCode(of = {"id"})
-public class Alumno {
+public class AlumnoDto {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -54,7 +53,7 @@ public class Alumno {
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
-        Alumno alumno = (Alumno) o;
+        AlumnoDto alumno = (AlumnoDto) o;
         return Objects.equals(id, alumno.id);
     }
 

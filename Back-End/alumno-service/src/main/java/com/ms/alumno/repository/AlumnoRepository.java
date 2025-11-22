@@ -1,6 +1,6 @@
 package com.ms.alumno.repository;
 
-import com.ms.commons.alumno.entity.Alumno;
+import com.ms.alumno.entity.Alumno;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;

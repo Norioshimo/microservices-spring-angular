@@ -1,15 +1,14 @@
 package com.ms.cursos.controller;
 
 
-import com.ms.commons.alumno.entity.Alumno;
 import com.ms.commons.examen.entity.Examen;
 import com.ms.commons.service.controller.CommonController;
+import com.ms.cursos.dto.AlumnoDto;
 import com.ms.cursos.entity.Curso;
 import com.ms.cursos.entity.CursoAlumno;
 import com.ms.cursos.services.CursoService;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -43,7 +42,7 @@ public class CursoController extends CommonController<Curso, CursoService> {
                 .stream()
                 .map(c -> {
                     c.getCursoAlumnos().forEach(ca -> {
-                        Alumno alumno = new Alumno();
+                        AlumnoDto alumno = new AlumnoDto();
                         alumno.setId(ca.getAlumnoId());
                         c.addAlumno(alumno);
                     });
@@ -64,7 +63,7 @@ public class CursoController extends CommonController<Curso, CursoService> {
         Curso curso = o.get();
         if (curso.getCursoAlumnos().isEmpty() == false) {
             List<Long> ids = curso.getCursoAlumnos().stream().map(ca -> ca.getAlumnoId()).collect(Collectors.toList());
-            List<Alumno> alumnos = (List<Alumno>) this.service.obtenerAlumnosPorCurso(ids);
+            List<AlumnoDto> alumnos = (List<AlumnoDto>) this.service.obtenerAlumnosPorCurso(ids);
 
             curso.setAlumnos(alumnos);
         }
@@ -79,7 +78,7 @@ public class CursoController extends CommonController<Curso, CursoService> {
 
         Page<Curso> cursos = this.service.findAll(pageable).map(curso -> {
             curso.getCursoAlumnos().forEach(ca -> {
-                curso.addAlumno(Alumno.builder().id(ca.getId()).build());
+                curso.addAlumno(AlumnoDto.builder().id(ca.getId()).build());
             });
             return curso;
         });
@@ -119,7 +118,7 @@ public class CursoController extends CommonController<Curso, CursoService> {
 
 
     @PutMapping("/{id}/asignar-alumnos")
-    public ResponseEntity<?> asignarAlumnos(@RequestBody List<Alumno> alumnos, @PathVariable Long id) {
+    public ResponseEntity<?> asignarAlumnos(@RequestBody List<AlumnoDto> alumnos, @PathVariable Long id) {
         log.info("Buscar curso con el id: " + id);
         Optional<Curso> optional = service.findById(id);
 
@@ -130,7 +129,7 @@ public class CursoController extends CommonController<Curso, CursoService> {
 
         Curso dbCurso = optional.get();
 
-        for (Alumno alumno : alumnos) {
+        for (AlumnoDto alumno : alumnos) {
 
             CursoAlumno cursoAlumno = new CursoAlumno();
             cursoAlumno.setAlumnoId(alumno.getId());
@@ -144,7 +143,7 @@ public class CursoController extends CommonController<Curso, CursoService> {
     }
 
     @PutMapping("/{id}/eliminar-alumno")
-    public ResponseEntity<?> eliminarAlumnos(@RequestBody Alumno alumno, @PathVariable Long id) {
+    public ResponseEntity<?> eliminarAlumnos(@RequestBody AlumnoDto alumno, @PathVariable Long id) {
         log.info("Buscar curso con el id: " + id);
         Optional<Curso> optional = service.findById(id);
 

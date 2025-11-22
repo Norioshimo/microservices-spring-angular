@@ -1,6 +1,6 @@
 package com.ms.alumno.services;
 
-import com.ms.commons.alumno.entity.Alumno;
+import com.ms.alumno.entity.Alumno;
 import com.ms.commons.service.services.CommonServiceImp;
 import com.ms.alumno.client.CursoFeignClient;
 import com.ms.alumno.repository.AlumnoRepository;

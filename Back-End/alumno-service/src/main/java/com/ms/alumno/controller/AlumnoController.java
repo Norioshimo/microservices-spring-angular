@@ -1,6 +1,6 @@
 package com.ms.alumno.controller;
 
-import com.ms.commons.alumno.entity.Alumno;
+import com.ms.alumno.entity.Alumno;
 import com.ms.commons.service.controller.CommonController;
 import com.ms.alumno.services.AlumnoService;
 import jakarta.validation.Valid;
