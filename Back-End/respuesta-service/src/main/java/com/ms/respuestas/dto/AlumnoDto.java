@@ -41,11 +41,6 @@ public class AlumnoDto {
     @JsonIgnore
     private byte[] foto;
 
-    @PrePersist
-    public void prePersist() {
-        this.createAt = new Date();
-    }
-
     public Integer getFotoHashCode() {
         return this.foto != null ? this.foto.hashCode() : null;
     }
