@@ -1,4 +1,4 @@
-package com.ms.usuario.repository;
+package com.ms.alumno.repository;
 
 import com.ms.commons.alumno.entity.Alumno;
 import org.springframework.data.domain.Page;

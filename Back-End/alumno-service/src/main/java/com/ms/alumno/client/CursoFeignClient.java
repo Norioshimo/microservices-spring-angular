@@ -1,4 +1,4 @@
-package com.ms.usuario.client;
+package com.ms.alumno.client;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.DeleteMapping;

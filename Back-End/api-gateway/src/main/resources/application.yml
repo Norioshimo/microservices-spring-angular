@@ -28,10 +28,10 @@ spring:
 
           # Rutas del Gateway
           routes:
-            - id: usuario-service
-              uri: lb://usuario-service
+            - id: alumno-service
+              uri: lb://alumno-service
               predicates:
-                - Path=/api/usuario/**
+                - Path=/api/alumno/**
 
             - id: curso-service
               uri: lb://curso-service

@@ -27,7 +27,7 @@ Prerequisitos:
 - Node.js 12.15.0
 - Angular CLI
 - Docker y Docker Compose
-- PostgreSQL / MongoDB instalado
+- MongoDB instalado
 
 ### Backend (Spring Boot):
 1. Clonar el repositorio

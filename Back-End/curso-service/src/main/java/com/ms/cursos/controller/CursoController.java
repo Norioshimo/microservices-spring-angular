@@ -158,7 +158,7 @@ public class CursoController extends CommonController<Curso, CursoService> {
         CursoAlumno cursoAlumno = new CursoAlumno();
         cursoAlumno.setAlumnoId(alumno.getId());
 
-        log.info("Usuario eliminado del curso: " + dbCurso.removeCursoAlumno(cursoAlumno));
+        log.info("alumno eliminado del curso: " + dbCurso.removeCursoAlumno(cursoAlumno));
 
         return ResponseEntity.status(HttpStatus.CREATED).body(this.service.save(dbCurso));
 

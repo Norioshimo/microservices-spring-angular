@@ -1,9 +1,9 @@
-package com.ms.usuario.services;
+package com.ms.alumno.services;
 
 import com.ms.commons.alumno.entity.Alumno;
 import com.ms.commons.service.services.CommonServiceImp;
-import com.ms.usuario.client.CursoFeignClient;
-import com.ms.usuario.repository.AlumnoRepository;
+import com.ms.alumno.client.CursoFeignClient;
+import com.ms.alumno.repository.AlumnoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

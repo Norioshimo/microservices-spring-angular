@@ -7,9 +7,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
-@FeignClient(name = "usuario-service")
+@FeignClient(name = "alumno-service")
 public interface AlumnoFeignClient {
 
-    @GetMapping("/api/usuario/alumnos-por-curso")
+    @GetMapping("/api/alumno/alumnos-por-curso")
     public Iterable<Alumno> obtenerAlumnosPorCurso(@RequestParam List<Long> ids);
 }

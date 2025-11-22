@@ -10,11 +10,11 @@
     </parent>
 
 
-    <groupId>com.ms.usuario</groupId>
-    <artifactId>usuario-service</artifactId>
+    <groupId>com.ms.alumno</groupId>
+    <artifactId>alumno-service</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>usuario-service</name>
-    <description>Micro servicios de usuarios</description>
+    <name>alumno-service</name>
+    <description>Micro servicios de alumno</description>
 
 
     <url/>

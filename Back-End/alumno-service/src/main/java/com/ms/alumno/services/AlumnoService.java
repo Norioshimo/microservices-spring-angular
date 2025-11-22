@@ -1,4 +1,4 @@
-package com.ms.usuario.services;
+package com.ms.alumno.services;
 
 
 import com.ms.commons.alumno.entity.Alumno;

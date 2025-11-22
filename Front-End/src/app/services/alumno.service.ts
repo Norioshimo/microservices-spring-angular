@@ -11,7 +11,7 @@ import { BASE_ENDPOINT } from '../config';
 })
 export class AlumnoService extends CommonService<Alumno> {
 
-  protected baseEndpoint = `${BASE_ENDPOINT}/usuario`;
+  protected baseEndpoint = `${BASE_ENDPOINT}/alumno`;
 
   constructor(http: HttpClient) {
     super(http);

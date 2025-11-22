@@ -12,7 +12,7 @@ import { BASE_ENDPOINT } from 'src/app/config';
 export class AlumnosComponent extends CommonListarComponent<Alumno, AlumnoService> {
 
 
-  baseEndpoint = `${BASE_ENDPOINT}/usuario`;
+  baseEndpoint = `${BASE_ENDPOINT}/alumno`;
 
   constructor(service: AlumnoService) {
     super(service);

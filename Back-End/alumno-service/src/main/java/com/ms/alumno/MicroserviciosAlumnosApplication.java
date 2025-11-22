@@ -1,4 +1,4 @@
-package com.ms.usuario;
+package com.ms.alumno;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -10,10 +10,10 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @SpringBootApplication
 @EnableDiscoveryClient
 @EntityScan({"com.ms.commons.alumno.entity"})// Paquete de commom alumnos
-public class MicroserviciosUsuariosApplication {
+public class MicroserviciosAlumnosApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(MicroserviciosUsuariosApplication.class, args);
+		SpringApplication.run(MicroserviciosAlumnosApplication.class, args);
 	}
 
 }

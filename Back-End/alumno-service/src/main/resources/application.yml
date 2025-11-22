@@ -3,11 +3,11 @@ server:
 
 spring:
   application:
-    name: usuario-service
+    name: alumno-service
 
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/db_microservicios_usuarios
+    url: jdbc:postgresql://localhost:5432/db_microservicios_alumnos
     username: postgres
     password: postgres
 

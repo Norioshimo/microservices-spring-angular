@@ -24,7 +24,7 @@
         <module>commons-examenes</module>
         <module>discovery-service</module>
         <module>api-gateway</module>
-        <module>usuario-service</module>
+        <module>alumno-service</module>
         <module>curso-service</module>
         <module>examen-service</module>
         <module>respuesta-service</module>

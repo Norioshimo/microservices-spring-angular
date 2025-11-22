@@ -1,8 +1,8 @@
-package com.ms.usuario.controller;
+package com.ms.alumno.controller;
 
 import com.ms.commons.alumno.entity.Alumno;
 import com.ms.commons.service.controller.CommonController;
-import com.ms.usuario.services.AlumnoService;
+import com.ms.alumno.services.AlumnoService;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.io.ByteArrayResource;
@@ -20,7 +20,7 @@ import java.util.Optional;
 
 
 @RestController
-@RequestMapping("/api/usuario")
+@RequestMapping("/api/alumno")
 @Slf4j
 public class AlumnoController extends CommonController<Alumno, AlumnoService> {
 
@@ -47,18 +47,18 @@ public class AlumnoController extends CommonController<Alumno, AlumnoService> {
 
     @PutMapping("/{id}")
     public ResponseEntity<?> editar(@Valid @RequestBody Alumno alumno, BindingResult result, @PathVariable(name = "id") Long id) {
-        log.info("Buscar usuario con el id: " + id);
+        log.info("Buscar alumno con el id: " + id);
         log.info(alumno.toString());
 
         if (result.hasErrors()) {
-            log.info("Datos de usuarios invalidos");
+            log.info("Datos de alumno invalidos");
             return this.validar(result);
         }
 
         Optional<Alumno> optional = service.findById(id);
 
         if (optional.isEmpty()) {
-            log.info("No existe el usuario con el id: " + id);
+            log.info("No existe el alumno con el id: " + id);
             return ResponseEntity.notFound().build();
         }
 
@@ -93,7 +93,7 @@ public class AlumnoController extends CommonController<Alumno, AlumnoService> {
     public ResponseEntity<?> editarConFoto(@Valid Alumno alumno, BindingResult result, @PathVariable(name = "id") Long id
             , @RequestParam MultipartFile archivo) throws IOException {
 
-        log.info("Buscar usuario con el id: " + id);
+        log.info("Buscar alumno con el id: " + id);
 
         if (result.hasErrors()) {
             return this.validar(result);
@@ -102,7 +102,7 @@ public class AlumnoController extends CommonController<Alumno, AlumnoService> {
         Optional<Alumno> optional = service.findById(id);
 
         if (optional.isEmpty()) {
-            log.info("No existe el usuario con el id: " + id);
+            log.info("No existe el alumno con el id: " + id);
             return ResponseEntity.notFound().build();
         }
 
